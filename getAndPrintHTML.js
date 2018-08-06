@@ -4,9 +4,7 @@ function getAndPrintHTML () {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
   };
-
   var arr = [];
-
   https.get(requestOptions, function(response) {
     response.setEncoding('utf8');
     response.on('data', function(data) {
