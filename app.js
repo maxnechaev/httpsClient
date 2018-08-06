@@ -10,9 +10,6 @@ function getAndPrintHTMLChunks () {
     response.on('data', function(data) {
       console.log('------- Chunk received ------- \n', data, '\n');
     });
-    // response.on('end', function() {
-    //   console.log('Response Stream complete');
-    // });
   });
 
 
