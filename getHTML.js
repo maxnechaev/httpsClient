@@ -1,20 +1,18 @@
-function getHTML() {
-  var https = require('https');
-  var fs = require("fs");
-  var filePath = "/tmp/storedPage.txt";
-  // var fileData = "Testing asynchronous file write.\n";
-  var url = process.argv[2];
-  var arr = [];
+var https = require('https');
+var fs = require("fs");
+var filePath = "/tmp/storedPage.txt";
+var url = process.argv[2];
+var arr = [];
 
-  arr.push(url.split('/'));
-  arr.slice(1, arr.length);
+arr.push(url.split('/'));
+arr.slice(1, arr.length);
 
-  var requestOptions = {
-    host: arr[0][0],
-    path: "/" + arr[0].slice(1, arr[0].length).join('/')
-  };
+var requestOptions = {
+  host: arr[0][0],
+  path: "/" + arr[0].slice(1, arr[0].length).join('/')
+};
 
-  console.log(requestOptions);
+function getHTML(options, callback) {
   var arr2 = [];
   https.get(requestOptions, function(response) {
     response.setEncoding('utf8');
@@ -31,5 +29,8 @@ function getHTML() {
     });
   });
 }
+function printHTML (html) {
+  console.log(html);
+}
 
-getHTML();
+getHTML(requestOptions, printHTML);
