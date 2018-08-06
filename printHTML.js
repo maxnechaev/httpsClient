@@ -1,4 +1,4 @@
-function getAndPrintHTML () {
+function printHTML () {
   var https = require('https');
   var url = process.argv[2];
   var arr = [];
@@ -11,6 +11,8 @@ function getAndPrintHTML () {
     path: "/" + arr[0].slice(1, arr[0].length).join('/')
   };
 
+console.log(arr);
+console.log(requestOptions);
   var arr2 = [];
   https.get(requestOptions, function(response) {
     response.setEncoding('utf8');
@@ -23,4 +25,4 @@ function getAndPrintHTML () {
   });
 }
 
-getAndPrintHTML ();
+printHTML ();
