@@ -11,8 +11,6 @@ function getAndPrintHTMLChunks () {
       console.log('------- Chunk received ------- \n', data, '\n');
     });
   });
-
-
 }
 
 getAndPrintHTMLChunks ();
